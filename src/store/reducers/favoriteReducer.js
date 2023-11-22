@@ -10,7 +10,12 @@ export const deleteFavorite = (id) => {
 export const favoriteReducer = (state = initialData, action) => {
   switch (action.type) {
     case "ADD_FAVORITE":
-      return [...state, ...action.payload];
+      const exist = state.filter((movie) => movie.id == action.payload[0].id);
+      if (exist.length > 0) {
+        return state;
+      } else {
+        return [...state, ...action.payload];
+      }
       break;
 
     case "DELETE_FAVORITE":
