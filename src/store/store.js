@@ -2,7 +2,8 @@ import {
   applyMiddleware,
   combineReducers,
   legacy_createStore as createStore,
-} from "redux";
+} from "@reduxjs/toolkit";
+
 
 import { movieReducer } from "./reducers/movieReducer";
 import { favoriteReducer } from "./reducers/favoriteReducer";
