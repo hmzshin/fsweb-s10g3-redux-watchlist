@@ -1,4 +1,4 @@
-const initialData = [];
+import { movies } from "../../movies";
 
 const addMovie = (obj) => {
   return { type: "ADD_MOVIE", payload: obj };
@@ -7,7 +7,7 @@ const deleteMovie = (id) => {
   return { type: "DELETE_MOVIE", payload: id };
 };
 
-export const movieReducer = (state = initialData, action) => {
+export const movieReducer = (state = movies, action) => {
   switch (action.type) {
     case "ADD_MOVIE":
       return [...state, action.payload];

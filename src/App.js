@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Movie from "./components/Movie";
 import FavMovie from "./components/FavMovie";
@@ -35,7 +34,7 @@ function App() {
       </nav>
       <Switch>
         <Route exact path="/">
-          <Movie sira={sira} />
+          <Movie />
 
           <div className="flex gap-3 justify-end py-3">
             <button
