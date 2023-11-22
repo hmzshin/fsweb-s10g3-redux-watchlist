@@ -6,8 +6,8 @@ export const nextMovie = () => {
 export const previousMovie = () => {
   return { type: "PREVIOUS_MOVIE" };
 };
-export const startOver = (value) => {
-  return { type: "START_OVER", payload: value };
+export const startOver = () => {
+  return { type: "START_OVER" };
 };
 
 export const orderReducer = (state = initialData, action) => {

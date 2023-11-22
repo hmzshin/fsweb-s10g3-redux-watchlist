@@ -2,7 +2,11 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import Movie from "./components/Movie";
 import FavMovie from "./components/FavMovie";
 import { useDispatch, useSelector } from "react-redux";
-import { nextMovie, previousMovie } from "./store/reducers/orderReducer";
+import {
+  nextMovie,
+  previousMovie,
+  startOver,
+} from "./store/reducers/orderReducer";
 import { addFavorite } from "./store/reducers/favoriteReducer";
 
 function App() {
@@ -50,12 +54,23 @@ function App() {
             >
               Önceki
             </button>
-            <button
-              onClick={sonrakiFilm}
-              className="select-none px-4 py-2 border border-blue-700 text-blue-700 hover:border-blue-500 hover:text-blue-500"
-            >
-              Sıradaki
-            </button>
+
+            {order == movies.length - 1 ? (
+              <button
+                onClick={() => dispatch(startOver())}
+                className="select-none px-4 py-2 border text-white bg-red-600  hover:bg-red-500"
+              >
+                Başa Dön
+              </button>
+            ) : (
+              <button
+                onClick={sonrakiFilm}
+                className="select-none px-4 py-2 border border-blue-700 text-blue-700 hover:border-blue-500 hover:text-blue-500"
+              >
+                Sıradaki
+              </button>
+            )}
+
             <button
               className="select-none px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white"
               onClick={addFav}
