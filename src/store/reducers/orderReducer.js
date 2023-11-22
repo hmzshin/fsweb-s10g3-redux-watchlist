@@ -1,10 +1,10 @@
 const initialData = 0;
 
 export const nextMovie = () => {
-  return { type: "NEXT_MOVIE"};
+  return { type: "NEXT_MOVIE" };
 };
-export const previousMovie = (value) => {
-  return { type: "PREVIOUS_MOVIE", payload: value };
+export const previousMovie = () => {
+  return { type: "PREVIOUS_MOVIE" };
 };
 export const startOver = (value) => {
   return { type: "START_OVER", payload: value };

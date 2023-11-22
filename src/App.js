@@ -3,6 +3,7 @@ import Movie from "./components/Movie";
 import FavMovie from "./components/FavMovie";
 import { useDispatch, useSelector } from "react-redux";
 import { nextMovie } from "./store/reducers/orderReducer";
+import { previousMovie } from "./store/reducers/orderReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,12 @@ function App() {
           <Movie />
 
           <div className="flex gap-3 justify-end py-3">
+            <button
+              onClick={() => dispatch(previousMovie())}
+              className="select-none px-4 py-2 border border-blue-700 text-blue-700 hover:border-blue-500 hover:text-blue-500"
+            >
+              Önceki
+            </button>
             <button
               onClick={sonrakiFilm}
               className="select-none px-4 py-2 border border-blue-700 text-blue-700 hover:border-blue-500 hover:text-blue-500"
