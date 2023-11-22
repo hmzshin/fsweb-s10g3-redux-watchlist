@@ -2,16 +2,22 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import Movie from "./components/Movie";
 import FavMovie from "./components/FavMovie";
 import { useDispatch, useSelector } from "react-redux";
-import { nextMovie } from "./store/reducers/orderReducer";
-import { previousMovie } from "./store/reducers/orderReducer";
+import { nextMovie, previousMovie } from "./store/reducers/orderReducer";
+import { addFavorite } from "./store/reducers/favoriteReducer";
 
 function App() {
   const dispatch = useDispatch();
-  const sira = useSelector((store) => store.order);
-  const favMovies = [];
+  const order = useSelector((store) => store.order);
+  const movies = useSelector((store) => store.movie);
+  const favMovies = useSelector((store) => store.favorite);
 
   function sonrakiFilm() {
     dispatch(nextMovie());
+  }
+  function addFav() {
+    const movie = movies.filter((movie, index) => index == order);
+    console.log(movie);
+    dispatch(addFavorite(movie));
   }
 
   return (
@@ -50,7 +56,10 @@ function App() {
             >
               Sıradaki
             </button>
-            <button className="select-none px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white">
+            <button
+              className="select-none px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white"
+              onClick={addFav}
+            >
               Listeme ekle
             </button>
           </div>
