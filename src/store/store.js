@@ -4,7 +4,7 @@ import {
   legacy_createStore as createStore,
 } from "@reduxjs/toolkit";
 
-
+import logger from "redux-logger";
 import { movieReducer } from "./reducers/movieReducer";
 import { favoriteReducer } from "./reducers/favoriteReducer";
 import { orderReducer } from "./reducers/orderReducer";
@@ -15,4 +15,4 @@ export const reducers = combineReducers({
   order: orderReducer,
 });
 
-export const store = createStore(reducers);
+export const store = createStore(reducers, applyMiddleware(logger));
